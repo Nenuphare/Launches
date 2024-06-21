@@ -16,7 +16,10 @@ class LaunchesPage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 33, 7, 77),
       ),
       body: Center(
-        child: Text('ROCKET LAUNCHES'),
+        child: Text('ROCKET LAUNCHES',
+            style: TextStyle(
+              color: Colors.white,
+            )),
       ),
     );
   }

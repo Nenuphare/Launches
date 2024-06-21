@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              'assets/Logo.png', // Assurez-vous que le chemin est correct
+              'assets/Logo.png',
               width: 200,
               height: 200,
             ),

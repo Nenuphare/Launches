@@ -1,5 +1,5 @@
 name: launches
-description: "A new Flutter project."
+description: "A flutter app, that list all programmed spaceX rocket launches"
 publish_to: 'none'
 version: 0.1.0
 
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.4 
 
 dev_dependencies:
   flutter_test:

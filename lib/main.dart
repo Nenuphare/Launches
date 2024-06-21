@@ -15,9 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.black, // Définir le fond noir ici
-        fontFamily: 'Bungee', // Définir la police personnalisée ici
-      ),
+          scaffoldBackgroundColor: Colors.black, fontFamily: 'Bungee'),
       home: SplashScreen(),
     );
   }

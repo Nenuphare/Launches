@@ -16,7 +16,10 @@ class WorldMapPage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 33, 7, 77),
       ),
       body: Center(
-        child: Text('World Map Page'),
+        child: Text('World Map Page',
+            style: TextStyle(
+              color: Colors.white,
+            )),
       ),
     );
   }
