@@ -17,3 +17,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/Logo.png
+  fonts:
+    - family: Bungee
+      fonts:
+        - asset: assets/Bungee-Regular.ttf

@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "World Map",
+          "HOME",
           style: TextStyle(
             color: Colors.white, // Couleur du texte du titre
             fontSize: 20, // Taille du texte du titre
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 33, 7, 77),
       ),
       body: Center(
-        child: Text('World Map Page'),
+        child: Text('HOME'),
       ),
     );
   }
