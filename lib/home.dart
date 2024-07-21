@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -28,6 +29,15 @@ class _HomePageState extends State<HomePage> {
     fetchData();
   }
 
+  // Méthode pour ouvrir une URL
+  void _launchURL(String url) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      throw 'Impossible de lancer $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,11 +54,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: spacexData == null
-            ? CircularProgressIndicator() // Display a loading indicator while fetching data
+            ? CircularProgressIndicator()
             : SingleChildScrollView(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       spacexData!['name'],
@@ -58,14 +67,43 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Summary: ${spacexData!['summary']}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
                     SizedBox(height: 20),
                     Text(
-                      spacexData!['summary'],
+                      'Headquarters Address:',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      '${spacexData!['headquarters']['address']}, ${spacexData!['headquarters']['city']}, ${spacexData!['headquarters']['state']}',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                       ),
                       textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Links:',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () =>
+                          _launchURL(spacexData!['links']['website']),
+                      child: Text('Show Flutter homepage'),
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -75,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Text(
                       'CEO: ${spacexData!['ceo']}',
                       style: TextStyle(
@@ -83,7 +121,6 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 16,
                       ),
                     ),
-                    // Add more Text widgets for other data fields as needed
                   ],
                 ),
               ),
